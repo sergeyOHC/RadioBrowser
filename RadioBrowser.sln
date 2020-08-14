@@ -9,7 +9,7 @@ ProjectSection(SolutionItems) = preProject
 	.gitignore = .gitignore
 EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RadioBrowser.Test", "RadioBrowser.Test\RadioBrowser.Test.csproj", "{BC2FA209-C1EA-4583-B92B-E2516A2FA32F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RadioBrowser.Example", "RadioBrowser.Example\RadioBrowser.Example.csproj", "{7BE15F6C-AFCC-4445-AC59-AF69F864C02D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,9 +21,9 @@ Global
 		{13381B16-1E1F-497C-A3E3-355006C758D7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{13381B16-1E1F-497C-A3E3-355006C758D7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{13381B16-1E1F-497C-A3E3-355006C758D7}.Release|Any CPU.Build.0 = Release|Any CPU
-		{BC2FA209-C1EA-4583-B92B-E2516A2FA32F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{BC2FA209-C1EA-4583-B92B-E2516A2FA32F}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{BC2FA209-C1EA-4583-B92B-E2516A2FA32F}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{BC2FA209-C1EA-4583-B92B-E2516A2FA32F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7BE15F6C-AFCC-4445-AC59-AF69F864C02D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7BE15F6C-AFCC-4445-AC59-AF69F864C02D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7BE15F6C-AFCC-4445-AC59-AF69F864C02D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7BE15F6C-AFCC-4445-AC59-AF69F864C02D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
