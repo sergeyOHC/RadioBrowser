@@ -15,10 +15,12 @@ namespace RadioBrowser
             Client = new Client(apiUrl);
             Search = new Search(Client, converters);
             Stations = new Stations(Client, converters);
+            Modify = new Modify(Client);
         }
 
         public Search Search { get; }
         public Stations Stations { get; }
         public Client Client { get; }
+        public Modify Modify { get; }
     }
 }
