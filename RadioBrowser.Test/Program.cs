@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 
 namespace RadioBrowser.Test
 {
@@ -6,8 +7,12 @@ namespace RadioBrowser.Test
     {
         public static void Main(string[] args)
         {
-            var client = new Client();
-            Console.WriteLine(client.ApiUrl);
+            var radioBrowser = new RadioBrowser();
+            Console.WriteLine(radioBrowser.Client.ApiUrl);
+
+            var station = radioBrowser.Stations.SearchByNameAsync("test").GetAwaiter().GetResult().First();
+
+            Console.WriteLine(station.Name);
         }
     }
 }

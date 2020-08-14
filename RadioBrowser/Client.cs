@@ -9,30 +9,16 @@ namespace RadioBrowser
     {
         private readonly HttpClient _httpClient;
 
-        /// <summary>
-        ///     Initialize client
-        /// </summary>
-        public Client() : this(GetRadioBrowserApiUrl())
+        internal Client(string apiUrl)
         {
-        }
-
-        /// <summary>
-        ///     Initialize client with custom API URL
-        /// </summary>
-        /// <param name="apiUrl"></param>
-        public Client(string apiUrl)
-        {
-            ApiUrl = apiUrl;
+            ApiUrl = apiUrl ?? GetRadioBrowserApiUrl();
             _httpClient = new HttpClient();
-            Stations = new Stations(this);
         }
 
         /// <summary>
         ///     Currently used API URL
         /// </summary>
         public string ApiUrl { get; }
-
-        public Stations Stations { get; }
 
         private static string GetRadioBrowserApiUrl()
         {

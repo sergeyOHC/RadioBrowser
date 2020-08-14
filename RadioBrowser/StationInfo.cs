@@ -50,7 +50,8 @@ namespace RadioBrowser
         /// <summary>
         ///     Tags of the stream with more information about it.
         /// </summary>
-        [JsonIgnore] public List<string> TagsList { get; set; }
+        [JsonIgnore]
+        public List<string> TagsList { get; set; }
 
         /// <summary>
         ///     Official country codes as in ISO 3166-1 alpha-2.
@@ -60,7 +61,8 @@ namespace RadioBrowser
         /// <summary>
         ///     Languages that are spoken in this stream.
         /// </summary>
-        [JsonIgnore] public List<string> LanguagesList { get; set; }
+        [JsonIgnore]
+        public List<string> LanguagesList { get; set; }
 
         /// <summary>
         ///     Number of votes for this station. This number is by server and only ever increases.
@@ -125,8 +127,8 @@ namespace RadioBrowser
         ///     Positive values mean an increase, negative a decrease of clicks.
         /// </summary>
         public int ClickTrend { get; set; }
-        
-        
+
+
         // Tags deserialization
         public string Tags
         {
@@ -142,7 +144,7 @@ namespace RadioBrowser
                 TagsList = value.Split(',').Select(s => s.Trim()).ToList();
             }
         }
-        
+
         // Language deserialization
         public string Language
         {
