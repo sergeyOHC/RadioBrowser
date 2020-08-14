@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Web;
 using RadioBrowser.Internals;
+using RadioBrowser.Models;
 
 namespace RadioBrowser.Api
 {

@@ -2,6 +2,7 @@
 using System.Diagnostics;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
+using RadioBrowser.Models;
 
 namespace RadioBrowser.Internals
 {
@@ -20,6 +21,11 @@ namespace RadioBrowser.Internals
         internal List<StationInfo> ToStationsList(string json)
         {
             return JsonConvert.DeserializeObject<List<StationInfo>>(json, _jsonSerializerSettings);
+        }
+
+        internal List<Country> ToCountriesList(string json)
+        {
+            return JsonConvert.DeserializeObject<List<Country>>(json, _jsonSerializerSettings);
         }
 
         private static void HandleDeserializationError(object sender, ErrorEventArgs errorArgs)

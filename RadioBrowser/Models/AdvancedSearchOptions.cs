@@ -1,4 +1,4 @@
-﻿namespace RadioBrowser
+﻿namespace RadioBrowser.Models
 {
     public class AdvancedSearchOptions
     {

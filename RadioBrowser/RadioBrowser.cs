@@ -14,11 +14,13 @@ namespace RadioBrowser
             var converters = new Converters();
             Client = new Client(apiUrl);
             Search = new Search(Client, converters);
+            Lists = new Lists(Client, converters);
             Stations = new Stations(Client, converters);
             Modify = new Modify(Client);
         }
 
         public Search Search { get; }
+        public Lists Lists { get; }
         public Stations Stations { get; }
         public Client Client { get; }
         public Modify Modify { get; }

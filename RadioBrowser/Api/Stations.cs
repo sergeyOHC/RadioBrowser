@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using RadioBrowser.Internals;
+using RadioBrowser.Models;
 
 namespace RadioBrowser.Api
 {
@@ -15,17 +16,7 @@ namespace RadioBrowser.Api
             _client = client;
             _converters = converters;
         }
-
-        /// <summary>
-        ///     Get list of all stations.
-        /// </summary>
-        /// <returns>List of stations</returns>
-        public async Task<List<StationInfo>> GetAllAsync()
-        {
-            var json = await _client.GetAsync("stations");
-            return _converters.ToStationsList(json);
-        }
-
+        
         /// <summary>
         ///     Get stations that are clicked the most.
         /// </summary>
