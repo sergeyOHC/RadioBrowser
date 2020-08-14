@@ -19,6 +19,17 @@ namespace RadioBrowser.Api
         }
 
         /// <summary>
+        /// Advanced search
+        /// </summary>
+        /// <param name="searchOptions">Advanced search options</param>
+        /// <returns>List of stations</returns>
+        public async Task<List<StationInfo>> AdvancedAsync(AdvancedSearchOptions searchOptions)
+        {
+            var json = await _client.GetAsync($"stations/search?{GetQueryString(searchOptions)}");
+            return _converters.ToStationsList(json);
+        }
+        
+        /// <summary>
         ///     Search stations by name
         /// </summary>
         /// <param name="name">Station name</param>
@@ -30,24 +41,24 @@ namespace RadioBrowser.Api
         }
 
         /// <summary>
-        /// Advanced search
-        /// </summary>
-        /// <param name="searchOptions">Advanced search options</param>
-        /// <returns>List of stations</returns>
-        public async Task<List<StationInfo>> AdvancedAsync(AdvancedSearchOptions searchOptions)
-        {
-            var json = await _client.GetAsync($"stations/search?{GetQueryString(searchOptions)}");
-            return _converters.ToStationsList(json);
-        }
-
-        /// <summary>
         /// Search by UUID
         /// </summary>
         /// <param name="uuid">Stations UUID</param>
         /// <returns>List of stations</returns>
-        public async Task<List<StationInfo>> ByUuid(Guid uuid)
+        public async Task<List<StationInfo>> ByUuidAsync(Guid uuid)
         {
             var json = await _client.GetAsync($"stations/byuuid?uuids={uuid.ToString()}");
+            return _converters.ToStationsList(json);
+        }
+        
+        /// <summary>
+        /// Search by URL
+        /// </summary>
+        /// <param name="url">Station URL</param>
+        /// <returns>List of stations</returns>
+        public async Task<List<StationInfo>> ByUrlAsync(string url)
+        {
+            var json = await _client.GetAsync($"stations/byurl?url={url}");
             return _converters.ToStationsList(json);
         }
         
