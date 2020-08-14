@@ -2,6 +2,20 @@
 
     <PropertyGroup>
         <TargetFramework>netstandard2.1</TargetFramework>
+        <PackageVersion>0.1.0</PackageVersion>
+        <Title>RadioBrowser</Title>
+        <Authors>tofudd</Authors>
+        <Description>Radio Browser API wrapper</Description>
+        <Copyright>(c) 2020 by tofudd, GPL v3</Copyright>
+        <PackageProjectUrl>https://github.com/tofudd/RadioBrowser</PackageProjectUrl>
+        <PackageLicenseUrl>https://github.com/tofudd/RadioBrowser/blob/master/LICENSE.md</PackageLicenseUrl>
+        <RepositoryUrl>https://github.com/tofudd/RadioBrowser</RepositoryUrl>
+        <RepositoryType>git</RepositoryType>
+        <PackageTags>API, radio browser, online radio</PackageTags>
     </PropertyGroup>
+
+    <ItemGroup>
+      <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
+    </ItemGroup>
 
 </Project>
