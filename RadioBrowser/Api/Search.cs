@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Web;
@@ -39,6 +40,17 @@ namespace RadioBrowser.Api
             return _converters.ToStationsList(json);
         }
 
+        /// <summary>
+        /// Search by UUID
+        /// </summary>
+        /// <param name="uuid">Stations UUID</param>
+        /// <returns>List of stations</returns>
+        public async Task<List<StationInfo>> ByUuid(Guid uuid)
+        {
+            var json = await _client.GetAsync($"stations/byuuid?uuids={uuid.ToString()}");
+            return _converters.ToStationsList(json);
+        }
+        
         private static string GetQueryString(object obj)
         {
             var properties = obj.GetType()
