@@ -27,12 +27,22 @@ namespace RadioBrowser.Api
         }
         
         /// <summary>
-        ///     Get list of all stations.
+        ///     Get list of countries.
         /// </summary>
-        /// <returns>List of stations</returns>
+        /// <returns>List of countries</returns>
         public async Task<List<Country>> GetCountriesAsync()
         {
             var json = await _client.GetAsync("countries");
+            return _converters.ToCountriesList(json);
+        }
+        
+        /// <summary>
+        /// Get List of country codes.
+        /// </summary>
+        /// <returns>List of country codes</returns>
+        public async Task<List<Country>> GetCountriesCodesAsync()
+        {
+            var json = await _client.GetAsync("countrycodes");
             return _converters.ToCountriesList(json);
         }
     }
