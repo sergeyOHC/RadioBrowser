@@ -8,7 +8,6 @@ namespace RadioBrowser.Test
         public static void Main(string[] args)
         {
             var radioBrowser = new RadioBrowser();
-
         }
     }
 }
