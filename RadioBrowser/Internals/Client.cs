@@ -3,7 +3,7 @@ using System.Net.Http;
 using System.Net.NetworkInformation;
 using System.Threading.Tasks;
 
-namespace RadioBrowser
+namespace RadioBrowser.Internals
 {
     public class Client
     {

@@ -1,7 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
+using RadioBrowser.Internals;
 
-namespace RadioBrowser
+namespace RadioBrowser.Api
 {
     public class Stations
     {

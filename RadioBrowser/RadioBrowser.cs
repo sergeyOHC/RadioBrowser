@@ -1,4 +1,7 @@
-﻿namespace RadioBrowser
+﻿using RadioBrowser.Api;
+using RadioBrowser.Internals;
+
+namespace RadioBrowser
 {
     public class RadioBrowser
     {

@@ -1,10 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Web;
+using RadioBrowser.Internals;
 
-namespace RadioBrowser
+namespace RadioBrowser.Api
 {
     public class Search
     {

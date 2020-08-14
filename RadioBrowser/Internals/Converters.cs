@@ -3,7 +3,7 @@ using System.Diagnostics;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
 
-namespace RadioBrowser
+namespace RadioBrowser.Internals
 {
     internal class Converters
     {
