@@ -1,0 +1,23 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RadioBrowser", "RadioBrowser\RadioBrowser.csproj", "{13381B16-1E1F-497C-A3E3-355006C758D7}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SolutionItems", "SolutionItems", "{96F3848A-57C7-45F1-AF0F-2AEA1960BE3A}"
+ProjectSection(SolutionItems) = preProject
+	README.md = README.md
+	LICENSE.md = LICENSE.md
+	.gitignore = .gitignore
+EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{13381B16-1E1F-497C-A3E3-355006C758D7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{13381B16-1E1F-497C-A3E3-355006C758D7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{13381B16-1E1F-497C-A3E3-355006C758D7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{13381B16-1E1F-497C-A3E3-355006C758D7}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
