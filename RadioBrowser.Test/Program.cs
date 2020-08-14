@@ -9,7 +9,7 @@ namespace RadioBrowser.Test
         public static void Main(string[] args)
         {
             var radioBrowser = new RadioBrowser();
-            var countries = radioBrowser.Lists.GetCountriesCodesAsync().GetAwaiter().GetResult();
+            var countries = radioBrowser.Lists.GetStatesAsync().GetAwaiter().GetResult();
 
             foreach (var country in countries)
             {

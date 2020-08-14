@@ -1,6 +1,6 @@
 ﻿namespace RadioBrowser.Models
 {
-    public class Country
+    public class NameAndCount
     {
         /// <summary>
         /// Country name.

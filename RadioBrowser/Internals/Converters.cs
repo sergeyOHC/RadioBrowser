@@ -23,9 +23,14 @@ namespace RadioBrowser.Internals
             return JsonConvert.DeserializeObject<List<StationInfo>>(json, _jsonSerializerSettings);
         }
 
-        internal List<Country> ToCountriesList(string json)
+        internal List<NameAndCount> ToNameAndCountList(string json)
         {
-            return JsonConvert.DeserializeObject<List<Country>>(json, _jsonSerializerSettings);
+            return JsonConvert.DeserializeObject<List<NameAndCount>>(json, _jsonSerializerSettings);
+        }
+        
+        internal List<State> ToStatesList(string json)
+        {
+            return JsonConvert.DeserializeObject<List<State>>(json, _jsonSerializerSettings);
         }
 
         private static void HandleDeserializationError(object sender, ErrorEventArgs errorArgs)
