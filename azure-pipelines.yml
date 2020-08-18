@@ -34,10 +34,8 @@ steps:
     displayName: 'NuGet Authenticate'
     
   - task: NuGetCommand@2
-    displayName: 'nuget push'
     inputs:
       command: 'push'
       packagesToPush: '$(Build.ArtifactStagingDirectory)/**/*.nupkg;!$(Build.ArtifactStagingDirectory)/**/*.symbols.nupkg'
-      publishVstsFeed: 'RadioBrowser/MainFeed'
-      versioningScheme: 'off'
-      allowPackageConflicts: true
+      nuGetFeedType: 'external'
+      publishFeedCredentials: 'Nuget.org'
