@@ -12,6 +12,7 @@
         <RepositoryUrl>https://github.com/tofudd/RadioBrowser</RepositoryUrl>
         <RepositoryType>git</RepositoryType>
         <PackageTags>API, radio browser, online radio</PackageTags>
+        <IsPackable>true</IsPackable>
     </PropertyGroup>
 
     <ItemGroup>
