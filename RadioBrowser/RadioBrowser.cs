@@ -16,7 +16,7 @@ namespace RadioBrowser
             Search = new Search(Client, converters);
             Lists = new Lists(Client, converters);
             Stations = new Stations(Client, converters);
-            Modify = new Modify(Client);
+            Modify = new Modify(Client, converters);
         }
 
         public Search Search { get; }

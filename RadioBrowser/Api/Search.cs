@@ -26,7 +26,7 @@ namespace RadioBrowser.Api
         /// <returns>List of stations</returns>
         public async Task<List<StationInfo>> AdvancedAsync(AdvancedSearchOptions searchOptions)
         {
-            var json = await _client.GetAsync($"stations/search?{GetQueryString(searchOptions)}");
+            var json = await _client.GetAsync($"stations/search?{_converters.GetQueryString(searchOptions)}");
             return _converters.ToStationsList(json);
         }
         
@@ -61,16 +61,6 @@ namespace RadioBrowser.Api
         {
             var json = await _client.GetAsync($"stations/byurl?url={url}");
             return _converters.ToStationsList(json);
-        }
-        
-        private static string GetQueryString(object obj)
-        {
-            var properties = obj.GetType()
-                .GetProperties()
-                .Where(p => p.GetValue(obj, null) != null)
-                .Select(p => char.ToLower(p.Name[0]) + p.Name.Substring(1) + "=" + HttpUtility.UrlEncode(p.GetValue(obj, null).ToString()));
-
-            return string.Join("&", properties.ToArray());
         }
     }
 }
