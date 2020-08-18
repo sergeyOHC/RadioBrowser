@@ -13,7 +13,6 @@
         <RepositoryType>git</RepositoryType>
         <PackageTags>API, radio browser, online radio</PackageTags>
         <IsPackable>true</IsPackable>
-        <LangVersion>9</LangVersion>
     </PropertyGroup>
 
     <ItemGroup>
