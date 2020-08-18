@@ -30,13 +30,14 @@ steps:
       nobuild: true
       versioningScheme: 'off'
 
+  - task: NuGetAuthenticate@0
+    displayName: 'NuGet Authenticate'
+    
   - task: NuGetCommand@2
     displayName: 'nuget push'
     inputs:
       command: 'push'
-      feedsToUse: 'select'
       packagesToPush: '$(Build.ArtifactStagingDirectory)/**/*.nupkg;!$(Build.ArtifactStagingDirectory)/**/*.symbols.nupkg'
-      nuGetFeedType: 'internal'
-      publishVstsFeed: 'MainFeed'
+      publishVstsFeed: 'RadioBrowser/MainFeed'
       versioningScheme: 'off'
       allowPackageConflicts: true
