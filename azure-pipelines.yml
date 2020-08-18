@@ -19,14 +19,14 @@ steps:
     inputs:
       command: 'build'
       arguments: '--configuration $(buildConfiguration)'
-      projects: 'CommonLib/CommonLib.csproj'
+      projects: 'RadioBrowser/RadioBrowser.csproj'
 
   - task: DotNetCoreCLI@2
     displayName: "dotnet pack"
     inputs:
       command: 'pack'
       arguments: '--configuration $(buildConfiguration)'
-      packagesToPack: 'CommonLib/CommonLib.csproj'
+      packagesToPack: 'RadioBrowser/RadioBrowser.csproj'
       nobuild: true
       versioningScheme: 'off'
 
