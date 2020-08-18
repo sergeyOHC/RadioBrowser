@@ -23,10 +23,10 @@ namespace RadioBrowser.Api
         /// </summary>
         /// <param name="uuid"></param>
         /// <returns>Result of action</returns>
-        public async Task<bool> ClickAsync(Guid uuid)
+        public async Task<ClickResult> ClickAsync(Guid uuid)
         {
-            var json = (JObject) JsonConvert.DeserializeObject(await _client.GetAsync($"/url/{uuid}"));
-            return json?["ok"] != null && json["ok"].Value<bool>();
+            var json = await _client.GetAsync($"/url/{uuid}");
+            return _converters.ToClickResult(json);
         }
         
         /// <summary>
@@ -34,10 +34,10 @@ namespace RadioBrowser.Api
         /// </summary>
         /// <param name="uuid"></param>
         /// <returns>Result of action</returns>
-        public async Task<bool> VoteAsync(Guid uuid)
+        public async Task<ActionResult> VoteAsync(Guid uuid)
         {
-            var json = (JObject) JsonConvert.DeserializeObject(await _client.GetAsync($"/vote/{uuid}"));
-            return json?["ok"] != null && json["ok"].Value<bool>();
+            var json =  await _client.GetAsync($"/vote/{uuid}");
+            return _converters.ToActionResult(json);
         }
 
         /// <summary>

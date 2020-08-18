@@ -35,6 +35,16 @@ namespace RadioBrowser.Internals
             return JsonConvert.DeserializeObject<List<State>>(json, _jsonSerializerSettings);
         }
 
+        internal ActionResult ToActionResult(string json)
+        {
+            return JsonConvert.DeserializeObject<ActionResult>(json, _jsonSerializerSettings);
+        }
+        
+        internal ClickResult ToClickResult(string json)
+        {
+            return JsonConvert.DeserializeObject<ClickResult>(json, _jsonSerializerSettings);
+        }
+        
         internal AddStationResult ToAddStationResult(string json)
         {
             return JsonConvert.DeserializeObject<AddStationResult>(json, _jsonSerializerSettings);

@@ -2,10 +2,8 @@
 
 namespace RadioBrowser.Models
 {
-    public class AddStationResult
+    public class AddStationResult : ActionResult
     {
-        public bool Ok { get; set; }
-        public string Message { get; set; }
         public Guid Uuid { get; set; }
     }
 }
