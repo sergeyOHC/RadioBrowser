@@ -15,7 +15,7 @@ namespace RadioBrowser.Example
         private static async Task MainAsync()
         {
             // Initialization
-            var radioBrowser = new RadioBrowser();
+            var radioBrowser = new RadioBrowserClient();
 
             // Searching by name
             var searchByName = await radioBrowser.Search.ByNameAsync("tofu radio");

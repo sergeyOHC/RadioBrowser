@@ -8,12 +8,12 @@ namespace RadioBrowser.Api
 {
     public class Stations
     {
-        private readonly Client _client;
+        private readonly Internals.HttpClient _httpClient;
         private readonly Converters _converters;
 
-        internal Stations(Client client, Converters converters)
+        internal Stations(Internals.HttpClient httpClient, Converters converters)
         {
-            _client = client;
+            _httpClient = httpClient;
             _converters = converters;
         }
         
@@ -26,10 +26,10 @@ namespace RadioBrowser.Api
         {
             if (limit == 0)
             {
-                return _converters.ToStationsList(await _client.GetAsync("stations/topclick"));
+                return _converters.ToStationsList(await _httpClient.GetAsync("stations/topclick"));
             }
 
-            return _converters.ToStationsList(await _client.GetAsync($"stations/topclick/{limit}"));
+            return _converters.ToStationsList(await _httpClient.GetAsync($"stations/topclick/{limit}"));
         }
         
         /// <summary>
@@ -41,10 +41,10 @@ namespace RadioBrowser.Api
         {
             if (limit == 0)
             {
-                return _converters.ToStationsList(await _client.GetAsync("stations/topvote"));
+                return _converters.ToStationsList(await _httpClient.GetAsync("stations/topvote"));
             }
 
-            return _converters.ToStationsList(await _client.GetAsync($"stations/topvote/{limit}"));
+            return _converters.ToStationsList(await _httpClient.GetAsync($"stations/topvote/{limit}"));
         }
         
         /// <summary>
@@ -56,10 +56,10 @@ namespace RadioBrowser.Api
         {
             if (limit == 0)
             {
-                return _converters.ToStationsList(await _client.GetAsync("stations/lastclick"));
+                return _converters.ToStationsList(await _httpClient.GetAsync("stations/lastclick"));
             }
 
-            return _converters.ToStationsList(await _client.GetAsync($"stations/lastclick/{limit}"));
+            return _converters.ToStationsList(await _httpClient.GetAsync($"stations/lastclick/{limit}"));
         }
         
         /// <summary>
@@ -71,10 +71,10 @@ namespace RadioBrowser.Api
         {
             if (limit == 0)
             {
-                return _converters.ToStationsList(await _client.GetAsync("stations/lastchange"));
+                return _converters.ToStationsList(await _httpClient.GetAsync("stations/lastchange"));
             }
 
-            return _converters.ToStationsList(await _client.GetAsync($"stations/lastchange/{limit}"));
+            return _converters.ToStationsList(await _httpClient.GetAsync($"stations/lastchange/{limit}"));
         }
     }
 }

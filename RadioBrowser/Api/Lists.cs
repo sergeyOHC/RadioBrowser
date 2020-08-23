@@ -9,12 +9,12 @@ namespace RadioBrowser.Api
 {
     public class Lists
     {
-        private readonly Client _client;
+        private readonly Internals.HttpClient _httpClient;
         private readonly Converters _converters;
 
-        internal Lists(Client client, Converters converters)
+        internal Lists(Internals.HttpClient httpClient, Converters converters)
         {
-            _client = client;
+            _httpClient = httpClient;
             _converters = converters;
         }
 
@@ -24,7 +24,7 @@ namespace RadioBrowser.Api
         /// <returns>List of stations</returns>
         public async Task<List<StationInfo>> GetAllStationsAsync()
         {
-            return _converters.ToStationsList(await _client.GetAsync("stations"));
+            return _converters.ToStationsList(await _httpClient.GetAsync("stations"));
         }
 
         /// <summary>
@@ -36,10 +36,10 @@ namespace RadioBrowser.Api
         {
             if (filter == null)
             {
-                return _converters.ToNameAndCountList(await _client.GetAsync("countries"));
+                return _converters.ToNameAndCountList(await _httpClient.GetAsync("countries"));
             }
 
-            return _converters.ToNameAndCountList(await _client.GetAsync($"countries/{filter}"));
+            return _converters.ToNameAndCountList(await _httpClient.GetAsync($"countries/{filter}"));
         }
 
         /// <summary>
@@ -51,10 +51,10 @@ namespace RadioBrowser.Api
         {
             if (filter == null)
             {
-                return _converters.ToNameAndCountList(await _client.GetAsync("countrycodes"));
+                return _converters.ToNameAndCountList(await _httpClient.GetAsync("countrycodes"));
             }
 
-            return _converters.ToNameAndCountList(await _client.GetAsync($"countrycodes/{filter}"));
+            return _converters.ToNameAndCountList(await _httpClient.GetAsync($"countrycodes/{filter}"));
         }
 
         /// <summary>
@@ -66,10 +66,10 @@ namespace RadioBrowser.Api
         {
             if (filter == null)
             {
-                return _converters.ToNameAndCountList(await _client.GetAsync("codecs"));
+                return _converters.ToNameAndCountList(await _httpClient.GetAsync("codecs"));
             }
 
-            return _converters.ToNameAndCountList(await _client.GetAsync($"codecs/{filter}"));
+            return _converters.ToNameAndCountList(await _httpClient.GetAsync($"codecs/{filter}"));
         }
 
         /// <summary>
@@ -81,10 +81,10 @@ namespace RadioBrowser.Api
         {
             if (filter == null)
             {
-                return _converters.ToStatesList(await _client.GetAsync("states"));
+                return _converters.ToStatesList(await _httpClient.GetAsync("states"));
             }
 
-            return _converters.ToStatesList(await _client.GetAsync($"states/{filter}"));
+            return _converters.ToStatesList(await _httpClient.GetAsync($"states/{filter}"));
         }
 
         /// <summary>
@@ -96,10 +96,10 @@ namespace RadioBrowser.Api
         {
             if (filter == null)
             {
-                return _converters.ToNameAndCountList(await _client.GetAsync("languages"));
+                return _converters.ToNameAndCountList(await _httpClient.GetAsync("languages"));
             }
 
-            return _converters.ToNameAndCountList(await _client.GetAsync($"languages/{filter}"));
+            return _converters.ToNameAndCountList(await _httpClient.GetAsync($"languages/{filter}"));
         }
 
         /// <summary>
@@ -111,10 +111,10 @@ namespace RadioBrowser.Api
         {
             if (filter == null)
             {
-                return _converters.ToNameAndCountList(await _client.GetAsync("tags"));
+                return _converters.ToNameAndCountList(await _httpClient.GetAsync("tags"));
             }
 
-            return _converters.ToNameAndCountList(await _client.GetAsync($"tags/{filter}"));
+            return _converters.ToNameAndCountList(await _httpClient.GetAsync($"tags/{filter}"));
         }
     }
 }
