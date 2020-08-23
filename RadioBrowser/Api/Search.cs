@@ -10,12 +10,12 @@ namespace RadioBrowser.Api
 {
     public class Search
     {
-        private readonly Client _client;
+        private readonly Internals.HttpClient _httpClient;
         private readonly Converters _converters;
 
-        internal Search(Client client, Converters converters)
+        internal Search(Internals.HttpClient httpClient, Converters converters)
         {
-            _client = client;
+            _httpClient = httpClient;
             _converters = converters;
         }
 
@@ -26,7 +26,7 @@ namespace RadioBrowser.Api
         /// <returns>List of stations</returns>
         public async Task<List<StationInfo>> AdvancedAsync(AdvancedSearchOptions searchOptions)
         {
-            var json = await _client.GetAsync($"stations/search?{_converters.GetQueryString(searchOptions)}");
+            var json = await _httpClient.GetAsync($"stations/search?{_converters.GetQueryString(searchOptions)}");
             return _converters.ToStationsList(json);
         }
         
@@ -37,7 +37,7 @@ namespace RadioBrowser.Api
         /// <returns>List of stations</returns>
         public async Task<List<StationInfo>> ByNameAsync(string name)
         {
-            var json = await _client.GetAsync($"stations/search?name={name}");
+            var json = await _httpClient.GetAsync($"stations/search?name={name}");
             return _converters.ToStationsList(json);
         }
 
@@ -48,7 +48,7 @@ namespace RadioBrowser.Api
         /// <returns>List of stations</returns>
         public async Task<List<StationInfo>> ByUuidAsync(Guid uuid)
         {
-            var json = await _client.GetAsync($"stations/byuuid?uuids={uuid.ToString()}");
+            var json = await _httpClient.GetAsync($"stations/byuuid?uuids={uuid.ToString()}");
             return _converters.ToStationsList(json);
         }
         
@@ -59,7 +59,7 @@ namespace RadioBrowser.Api
         /// <returns>List of stations</returns>
         public async Task<List<StationInfo>> ByUrlAsync(string url)
         {
-            var json = await _client.GetAsync($"stations/byurl?url={url}");
+            var json = await _httpClient.GetAsync($"stations/byurl?url={url}");
             return _converters.ToStationsList(json);
         }
     }

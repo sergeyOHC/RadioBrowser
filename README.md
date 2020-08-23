@@ -13,7 +13,7 @@ Compatible with .NET Core and .NET Standard.
 
 #### Simple search
 ```c#
-var radioBrowser = new RadioBrowser();
+var radioBrowser = new RadioBrowserClient();
 var results = await radioBrowser.Search.ByNameAsync("station name");
 Console.WriteLine(results.First().Name);
 ```

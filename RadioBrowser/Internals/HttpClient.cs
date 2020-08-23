@@ -1,24 +1,33 @@
-﻿using System.Net;
-using System.Net.Http;
+﻿using System;
+using System.Diagnostics;
+using System.Net;
 using System.Net.NetworkInformation;
 using System.Threading.Tasks;
 
 namespace RadioBrowser.Internals
 {
-    public class Client
+    public class HttpClient
     {
-        private readonly HttpClient _httpClient;
+        private readonly System.Net.Http.HttpClient _httpClient;
 
-        internal Client(string apiUrl)
+        internal HttpClient(string apiUrl, string userAgent)
         {
             ApiUrl = apiUrl ?? GetRadioBrowserApiUrl();
-            _httpClient = new HttpClient();
+            UserAgent = userAgent ?? "RadioBrowser.NET (Library)/0.3";
+
+            _httpClient = new System.Net.Http.HttpClient();
+            _httpClient.DefaultRequestHeaders.Add("User-Agent", UserAgent);
         }
 
         /// <summary>
         ///     Currently used API URL
         /// </summary>
         public string ApiUrl { get; }
+
+        /// <summary>
+        ///     Currently used user agent
+        /// </summary>
+        public string UserAgent { get; }
 
         private static string GetRadioBrowserApiUrl()
         {

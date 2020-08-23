@@ -9,12 +9,12 @@ namespace RadioBrowser.Api
 {
     public class Modify
     {
-        private readonly Client _client;
+        private readonly Internals.HttpClient _httpClient;
         private readonly Converters _converters;
 
-        internal Modify(Client client, Converters converters)
+        internal Modify(Internals.HttpClient httpClient, Converters converters)
         {
-            _client = client;
+            _httpClient = httpClient;
             _converters = converters;
         }
 
@@ -25,7 +25,7 @@ namespace RadioBrowser.Api
         /// <returns>Result of action</returns>
         public async Task<ClickResult> ClickAsync(Guid uuid)
         {
-            var json = await _client.GetAsync($"/url/{uuid}");
+            var json = await _httpClient.GetAsync($"/url/{uuid}");
             return _converters.ToClickResult(json);
         }
         
@@ -36,7 +36,7 @@ namespace RadioBrowser.Api
         /// <returns>Result of action</returns>
         public async Task<ActionResult> VoteAsync(Guid uuid)
         {
-            var json =  await _client.GetAsync($"/vote/{uuid}");
+            var json =  await _httpClient.GetAsync($"/vote/{uuid}");
             return _converters.ToActionResult(json);
         }
 
@@ -47,7 +47,7 @@ namespace RadioBrowser.Api
         /// <returns>Result of action</returns>
         public async Task<AddStationResult> AddStationAsync(NewStation newStation)
         {
-            var json = await _client.GetAsync($"json/add/{_converters.GetQueryString(newStation)}");
+            var json = await _httpClient.GetAsync($"json/add/{_converters.GetQueryString(newStation)}");
             return _converters.ToAddStationResult(json);
         }
     }
