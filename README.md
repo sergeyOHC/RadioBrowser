@@ -19,7 +19,7 @@ Console.WriteLine(results.First().Name);
 ```
 
 #### Advanced search
-To use advanced search user `AdvancedSearchOptions`
+To use advanced search use `AdvancedSearchOptions`
 
 ```c#
 var results = await radioBrowser.Search.AdvancedAsync(new AdvancedSearchOptions
