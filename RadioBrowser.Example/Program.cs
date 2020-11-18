@@ -18,7 +18,7 @@ namespace RadioBrowser.Example
             var radioBrowser = new RadioBrowserClient();
 
             // Searching by name
-            var searchByName = await radioBrowser.Search.ByNameAsync("tofu radio");
+            var searchByName = await radioBrowser.Search.ByNameAsync("radio");
             Console.WriteLine(searchByName.First().Name); 
             Console.WriteLine("");
             

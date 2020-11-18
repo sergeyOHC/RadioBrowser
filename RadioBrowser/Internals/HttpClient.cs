@@ -1,6 +1,4 @@
-﻿using System;
-using System.Diagnostics;
-using System.Net;
+﻿using System.Net;
 using System.Net.NetworkInformation;
 using System.Threading.Tasks;
 
@@ -13,7 +11,7 @@ namespace RadioBrowser.Internals
         internal HttpClient(string apiUrl, string userAgent)
         {
             ApiUrl = apiUrl ?? GetRadioBrowserApiUrl();
-            UserAgent = userAgent ?? "RadioBrowser.NET (Library)/0.3";
+            UserAgent = userAgent ?? "RadioBrowser.NET Library/0.4";
 
             _httpClient = new System.Net.Http.HttpClient();
             _httpClient.DefaultRequestHeaders.Add("User-Agent", UserAgent);
