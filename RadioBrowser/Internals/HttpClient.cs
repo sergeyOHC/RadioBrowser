@@ -1,5 +1,8 @@
-﻿using System.Net;
+﻿using System;
+using System.Diagnostics;
+using System.Net;
 using System.Net.NetworkInformation;
+using System.Net.Sockets;
 using System.Threading.Tasks;
 
 namespace RadioBrowser.Internals
@@ -37,10 +40,17 @@ namespace RadioBrowser.Internals
 
             foreach (var ipAddress in ips)
             {
-                var reply = new Ping().Send(ipAddress);
-                if (reply == null || reply.RoundtripTime >= lastRoundTripTime) continue;
-                lastRoundTripTime = reply.RoundtripTime;
-                searchUrl = ipAddress.ToString();
+                try
+                {
+                    var reply = new Ping().Send(ipAddress);
+                    if (reply == null || reply.RoundtripTime >= lastRoundTripTime) continue;
+                    lastRoundTripTime = reply.RoundtripTime;
+                    searchUrl = ipAddress.ToString();
+                }
+                catch (SocketException)
+                {
+                    Trace.Write("Cannot ping socket");
+                }
             }
 
             // Get clean name
