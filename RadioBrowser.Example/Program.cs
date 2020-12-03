@@ -1,5 +1,4 @@
 ﻿using System;
-using System.ComponentModel;
 using System.Linq;
 using System.Threading.Tasks;
 using RadioBrowser.Models;
@@ -19,13 +18,38 @@ namespace RadioBrowser.Example
             var radioBrowser = new RadioBrowserClient();
 
             // Searching by name
-            var searchByName = await radioBrowser.Search.ByNameAsync("lainchan");
-
-            foreach(PropertyDescriptor descriptor in TypeDescriptor.GetProperties(searchByName.First()))
+            var searchByName = await radioBrowser.Search.ByNameAsync("shonan");
+            Console.WriteLine(searchByName.FirstOrDefault()?.Name); 
+            Console.WriteLine("");
+            
+            // Advanced searching
+            var advancedSearch = await radioBrowser.Search.AdvancedAsync(new AdvancedSearchOptions
             {
-                var name=descriptor.Name;
-                var value=descriptor.GetValue(searchByName.First());
-                Console.WriteLine("{0}={1}",name,value);
+                Language = "english",
+                TagList = "news",
+                Limit = 5
+            });
+            
+            foreach (var station in advancedSearch)
+            {
+                Console.WriteLine(station.Name);
+            }
+            Console.WriteLine("");
+            
+            // Getting top stations
+            var topByVotes = await radioBrowser.Stations.GetByVotesAsync(5);
+
+            foreach (var station in topByVotes)
+            {
+                Console.WriteLine(station.Name);
+            }
+            Console.WriteLine("");
+
+            // Getting codecs list
+            var codecs = await radioBrowser.Lists.GetCodecsAsync();
+            foreach (var codec in codecs)
+            {
+                Console.WriteLine($"{codec.Name} - {codec.Stationcount}");
             }
         }
     }

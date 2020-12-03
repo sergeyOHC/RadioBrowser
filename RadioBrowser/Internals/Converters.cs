@@ -21,7 +21,6 @@ namespace RadioBrowser.Internals
 
         internal List<StationInfo> ToStationsList(string json)
         {
-            Console.WriteLine(json);
             return JsonSerializer.Deserialize<List<StationInfo>>(json, _jsonSerializerOptions);
         }
 
