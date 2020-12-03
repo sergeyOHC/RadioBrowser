@@ -75,7 +75,8 @@ namespace RadioBrowser.Models
         /// <summary>
         ///     Last time when the stream information was changed in the database.
         /// </summary>
-        public string LastChangeTime { get; set; }
+        [JsonConverter(typeof(DateTimeConverter))]
+        public DateTime LastChangeTime { get; set; }
 
         /// <summary>
         ///     The codec of this stream recorded at the last check.
@@ -104,22 +105,26 @@ namespace RadioBrowser.Models
         /// <summary>
         ///     The last time when any radio-browser server checked the online state of this stream.
         /// </summary>
-        public string LastCheckTime { get; set; }
+        [JsonConverter(typeof(DateTimeConverter))]
+        public DateTime LastCheckTime { get; set; }
 
         /// <summary>
         ///     The last time when the stream was checked for the online status with a positive result.
         /// </summary>
-        public string LastCheckOkTime { get; set; }
+        [JsonConverter(typeof(DateTimeConverter))]
+        public DateTime LastCheckOkTime { get; set; }
 
         /// <summary>
         ///     The last time when this server checked the online state and the metadata of this stream.
         /// </summary>
-        public string LastLocalCheckTime { get; set; }
+        [JsonConverter(typeof(DateTimeConverter))]
+        public DateTime LastLocalCheckTime { get; set; }
 
         /// <summary>
         ///     The time of the last click recorded for this stream.
         /// </summary>
-        public string ClickTimestamp { get; set; }
+        [JsonConverter(typeof(DateTimeConverter))]
+        public DateTime ClickTimestamp { get; set; }
 
         /// <summary>
         ///     Clicks within the last 24 hours.
