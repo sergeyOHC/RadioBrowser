@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text.Json.Serialization;
 using RadioBrowser.Internals;
 
 namespace RadioBrowser.Models
 {
+    // ReSharper disable once ClassNeverInstantiated.Global
     public class StationInfo
     {
         /// <summary>
@@ -90,14 +90,16 @@ namespace RadioBrowser.Models
         /// <summary>
         ///     Mark if this stream is using HLS distribution or non-HLS.
         /// </summary>
-        public int Hls { get; set; }
+        [JsonConverter(typeof(BoolConverter))]
+        public bool Hls { get; set; }
 
         /// <summary>
         ///     The current online/offline state of this stream.
         ///     This is a value calculated from multiple measure points in the internet.
         ///     The test servers are located in different countries. It is a majority vote.
         /// </summary>
-        public int LastCheckOk { get; set; }
+        [JsonConverter(typeof(BoolConverter))]
+        public bool LastCheckOk { get; set; }
 
         /// <summary>
         ///     The last time when any radio-browser server checked the online state of this stream.
