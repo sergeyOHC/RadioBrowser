@@ -15,7 +15,8 @@ namespace RadioBrowser.Internals
         {
             _jsonSerializerOptions = new JsonSerializerOptions
             {
-                PropertyNameCaseInsensitive = true
+                PropertyNameCaseInsensitive = true,
+                IgnoreNullValues = true
             };
         }
 
