@@ -32,9 +32,9 @@ namespace RadioBrowser.Api
         /// <returns>List of countries</returns>
         public async Task<List<NameAndCount>> GetCountriesAsync(string filter = null)
         {
-            if (filter == null) return _converters.ToNameAndCountList(await _httpClient.GetAsync("countries"));
-
-            return _converters.ToNameAndCountList(await _httpClient.GetAsync($"countries/{filter}"));
+            return filter == null
+                ? _converters.ToNameAndCountList(await _httpClient.GetAsync("countries"))
+                : _converters.ToNameAndCountList(await _httpClient.GetAsync($"countries/{filter}"));
         }
 
         /// <summary>
@@ -44,9 +44,9 @@ namespace RadioBrowser.Api
         /// <returns>List of country codes</returns>
         public async Task<List<NameAndCount>> GetCountriesCodesAsync(string filter = null)
         {
-            if (filter == null) return _converters.ToNameAndCountList(await _httpClient.GetAsync("countrycodes"));
-
-            return _converters.ToNameAndCountList(await _httpClient.GetAsync($"countrycodes/{filter}"));
+            return filter == null
+                ? _converters.ToNameAndCountList(await _httpClient.GetAsync("countrycodes"))
+                : _converters.ToNameAndCountList(await _httpClient.GetAsync($"countrycodes/{filter}"));
         }
 
         /// <summary>
@@ -56,9 +56,9 @@ namespace RadioBrowser.Api
         /// <returns>List of codecs</returns>
         public async Task<List<NameAndCount>> GetCodecsAsync(string filter = null)
         {
-            if (filter == null) return _converters.ToNameAndCountList(await _httpClient.GetAsync("codecs"));
-
-            return _converters.ToNameAndCountList(await _httpClient.GetAsync($"codecs/{filter}"));
+            return filter == null
+                ? _converters.ToNameAndCountList(await _httpClient.GetAsync("codecs"))
+                : _converters.ToNameAndCountList(await _httpClient.GetAsync($"codecs/{filter}"));
         }
 
         /// <summary>
@@ -68,9 +68,9 @@ namespace RadioBrowser.Api
         /// <returns>List of states</returns>
         public async Task<List<State>> GetStatesAsync(string filter = null)
         {
-            if (filter == null) return _converters.ToStatesList(await _httpClient.GetAsync("states"));
-
-            return _converters.ToStatesList(await _httpClient.GetAsync($"states/{filter}"));
+            return filter == null
+                ? _converters.ToStatesList(await _httpClient.GetAsync("states"))
+                : _converters.ToStatesList(await _httpClient.GetAsync($"states/{filter}"));
         }
 
         /// <summary>
@@ -80,9 +80,9 @@ namespace RadioBrowser.Api
         /// <returns>List of languages</returns>
         public async Task<List<NameAndCount>> GetLanguagesAsync(string filter = null)
         {
-            if (filter == null) return _converters.ToNameAndCountList(await _httpClient.GetAsync("languages"));
-
-            return _converters.ToNameAndCountList(await _httpClient.GetAsync($"languages/{filter}"));
+            return filter == null
+                ? _converters.ToNameAndCountList(await _httpClient.GetAsync("languages"))
+                : _converters.ToNameAndCountList(await _httpClient.GetAsync($"languages/{filter}"));
         }
 
         /// <summary>
@@ -92,9 +92,9 @@ namespace RadioBrowser.Api
         /// <returns>List of tags</returns>
         public async Task<List<NameAndCount>> GetTagsAsync(string filter = null)
         {
-            if (filter == null) return _converters.ToNameAndCountList(await _httpClient.GetAsync("tags"));
-
-            return _converters.ToNameAndCountList(await _httpClient.GetAsync($"tags/{filter}"));
+            return filter == null
+                ? _converters.ToNameAndCountList(await _httpClient.GetAsync("tags"))
+                : _converters.ToNameAndCountList(await _httpClient.GetAsync($"tags/{filter}"));
         }
     }
 }
