@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace RadioBrowser.Models
 {
@@ -73,7 +73,7 @@ namespace RadioBrowser.Models
         /// <summary>
         ///     Last time when the stream information was changed in the database.
         /// </summary>
-        public DateTime LastChangeTime { get; set; }
+        public string LastChangeTime { get; set; }
 
         /// <summary>
         ///     The codec of this stream recorded at the last check.
@@ -88,34 +88,34 @@ namespace RadioBrowser.Models
         /// <summary>
         ///     Mark if this stream is using HLS distribution or non-HLS.
         /// </summary>
-        public bool Hls { get; set; }
+        public int Hls { get; set; }
 
         /// <summary>
         ///     The current online/offline state of this stream.
         ///     This is a value calculated from multiple measure points in the internet.
         ///     The test servers are located in different countries. It is a majority vote.
         /// </summary>
-        public bool LastCheckOk { get; set; }
+        public int LastCheckOk { get; set; }
 
         /// <summary>
         ///     The last time when any radio-browser server checked the online state of this stream.
         /// </summary>
-        public DateTime LastCheckTime { get; set; }
+        public string LastCheckTime { get; set; }
 
         /// <summary>
         ///     The last time when the stream was checked for the online status with a positive result.
         /// </summary>
-        public DateTime LastCheckOkTime { get; set; }
+        public string LastCheckOkTime { get; set; }
 
         /// <summary>
         ///     The last time when this server checked the online state and the metadata of this stream.
         /// </summary>
-        public DateTime LastLocalCheckTime { get; set; }
+        public string LastLocalCheckTime { get; set; }
 
         /// <summary>
         ///     The time of the last click recorded for this stream.
         /// </summary>
-        public DateTime ClickTimestamp { get; set; }
+        public string ClickTimestamp { get; set; }
 
         /// <summary>
         ///     Clicks within the last 24 hours.

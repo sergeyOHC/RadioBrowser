@@ -1,53 +1,53 @@
-﻿using System.Collections.Generic;
-using System.Diagnostics;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
+using System.Text.Json;
 using System.Web;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Serialization;
 using RadioBrowser.Models;
 
 namespace RadioBrowser.Internals
 {
     internal class Converters
     {
-        private readonly JsonSerializerSettings _jsonSerializerSettings;
+        private readonly JsonSerializerOptions _jsonSerializerOptions;
 
         internal Converters()
         {
-            _jsonSerializerSettings = new JsonSerializerSettings
+            _jsonSerializerOptions = new JsonSerializerOptions
             {
-                Error = HandleDeserializationError
+                PropertyNameCaseInsensitive = true
             };
         }
 
         internal List<StationInfo> ToStationsList(string json)
         {
-            return JsonConvert.DeserializeObject<List<StationInfo>>(json, _jsonSerializerSettings);
+            Console.WriteLine(json);
+            return JsonSerializer.Deserialize<List<StationInfo>>(json, _jsonSerializerOptions);
         }
 
         internal List<NameAndCount> ToNameAndCountList(string json)
         {
-            return JsonConvert.DeserializeObject<List<NameAndCount>>(json, _jsonSerializerSettings);
+            return JsonSerializer.Deserialize<List<NameAndCount>>(json, _jsonSerializerOptions);
         }
         
         internal List<State> ToStatesList(string json)
         {
-            return JsonConvert.DeserializeObject<List<State>>(json, _jsonSerializerSettings);
+            return JsonSerializer.Deserialize<List<State>>(json, _jsonSerializerOptions);
         }
 
         internal ActionResult ToActionResult(string json)
         {
-            return JsonConvert.DeserializeObject<ActionResult>(json, _jsonSerializerSettings);
+            return JsonSerializer.Deserialize<ActionResult>(json, _jsonSerializerOptions);
         }
         
         internal ClickResult ToClickResult(string json)
         {
-            return JsonConvert.DeserializeObject<ClickResult>(json, _jsonSerializerSettings);
+            return JsonSerializer.Deserialize<ClickResult>(json, _jsonSerializerOptions);
         }
         
         internal AddStationResult ToAddStationResult(string json)
         {
-            return JsonConvert.DeserializeObject<AddStationResult>(json, _jsonSerializerSettings);
+            return JsonSerializer.Deserialize<AddStationResult>(json, _jsonSerializerOptions);
         }
         
         internal string GetQueryString(object obj)
@@ -58,13 +58,6 @@ namespace RadioBrowser.Internals
                 .Select(p => char.ToLower(p.Name[0]) + p.Name.Substring(1) + "=" + HttpUtility.UrlEncode(p.GetValue(obj, null).ToString()));
 
             return string.Join("&", properties.ToArray());
-        }
-        
-        private static void HandleDeserializationError(object sender, ErrorEventArgs errorArgs)
-        {
-            var currentError = errorArgs.ErrorContext.Error.Message;
-            Trace.WriteLine(currentError);
-            errorArgs.ErrorContext.Handled = true;
         }
     }
 }

@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
-using System.Web;
 using RadioBrowser.Internals;
 using RadioBrowser.Models;
 
@@ -10,10 +8,10 @@ namespace RadioBrowser.Api
 {
     public class Search
     {
-        private readonly Internals.HttpClient _httpClient;
+        private readonly HttpClient _httpClient;
         private readonly Converters _converters;
 
-        internal Search(Internals.HttpClient httpClient, Converters converters)
+        internal Search(HttpClient httpClient, Converters converters)
         {
             _httpClient = httpClient;
             _converters = converters;
