@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text.Json.Serialization;
-using RadioBrowser.Internals;
+using RadioBrowser.Internals.JsonConverters;
 
 namespace RadioBrowser.Models
 {

@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using System.Text.Json;
 using System.Web;
@@ -29,7 +28,7 @@ namespace RadioBrowser.Internals
         {
             return JsonSerializer.Deserialize<List<NameAndCount>>(json, _jsonSerializerOptions);
         }
-        
+
         internal List<State> ToStatesList(string json)
         {
             return JsonSerializer.Deserialize<List<State>>(json, _jsonSerializerOptions);
@@ -39,23 +38,25 @@ namespace RadioBrowser.Internals
         {
             return JsonSerializer.Deserialize<ActionResult>(json, _jsonSerializerOptions);
         }
-        
+
         internal ClickResult ToClickResult(string json)
         {
             return JsonSerializer.Deserialize<ClickResult>(json, _jsonSerializerOptions);
         }
-        
+
         internal AddStationResult ToAddStationResult(string json)
         {
             return JsonSerializer.Deserialize<AddStationResult>(json, _jsonSerializerOptions);
         }
-        
-        internal string GetQueryString(object obj)
+
+        internal static string GetQueryString(object obj)
         {
             var properties = obj.GetType()
                 .GetProperties()
                 .Where(p => p.GetValue(obj, null) != null)
-                .Select(p => char.ToLower(p.Name[0]) + p.Name.Substring(1) + "=" + HttpUtility.UrlEncode(p.GetValue(obj, null).ToString()));
+                .Select(p =>
+                    char.ToLower(p.Name[0]) + p.Name.Substring(1) + "=" +
+                    HttpUtility.UrlEncode(p.GetValue(obj, null)?.ToString()));
 
             return string.Join("&", properties.ToArray());
         }

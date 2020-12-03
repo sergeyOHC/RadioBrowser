@@ -8,8 +8,8 @@ namespace RadioBrowser.Api
 {
     public class Search
     {
-        private readonly HttpClient _httpClient;
         private readonly Converters _converters;
+        private readonly HttpClient _httpClient;
 
         internal Search(HttpClient httpClient, Converters converters)
         {
@@ -18,16 +18,16 @@ namespace RadioBrowser.Api
         }
 
         /// <summary>
-        /// Advanced search
+        ///     Advanced search
         /// </summary>
         /// <param name="searchOptions">Advanced search options</param>
         /// <returns>List of stations</returns>
         public async Task<List<StationInfo>> AdvancedAsync(AdvancedSearchOptions searchOptions)
         {
-            var json = await _httpClient.GetAsync($"stations/search?{_converters.GetQueryString(searchOptions)}");
+            var json = await _httpClient.GetAsync($"stations/search?{Converters.GetQueryString(searchOptions)}");
             return _converters.ToStationsList(json);
         }
-        
+
         /// <summary>
         ///     Search stations by name
         /// </summary>
@@ -40,7 +40,7 @@ namespace RadioBrowser.Api
         }
 
         /// <summary>
-        /// Search by UUID
+        ///     Search by UUID
         /// </summary>
         /// <param name="uuid">Stations UUID</param>
         /// <returns>List of stations</returns>
@@ -49,9 +49,9 @@ namespace RadioBrowser.Api
             var json = await _httpClient.GetAsync($"stations/byuuid?uuids={uuid.ToString()}");
             return _converters.ToStationsList(json);
         }
-        
+
         /// <summary>
-        /// Search by URL
+        ///     Search by URL
         /// </summary>
         /// <param name="url">Station URL</param>
         /// <returns>List of stations</returns>

@@ -1,5 +1,4 @@
-﻿using System;
-using System.Diagnostics;
+﻿using System.Diagnostics;
 using System.Net;
 using System.Net.NetworkInformation;
 using System.Net.Sockets;
@@ -39,7 +38,6 @@ namespace RadioBrowser.Internals
             var searchUrl = @"de1.api.radio-browser.info";
 
             foreach (var ipAddress in ips)
-            {
                 try
                 {
                     var reply = new Ping().Send(ipAddress);
@@ -51,7 +49,6 @@ namespace RadioBrowser.Internals
                 {
                     Trace.Write("Cannot ping socket");
                 }
-            }
 
             // Get clean name
             var hostEntry = Dns.GetHostEntry(searchUrl);

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 
-namespace RadioBrowser.Internals
+namespace RadioBrowser.Internals.JsonConverters
 {
     public class ListConverter : JsonConverter<List<string>>
     {

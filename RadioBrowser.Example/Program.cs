@@ -19,9 +19,9 @@ namespace RadioBrowser.Example
 
             // Searching by name
             var searchByName = await radioBrowser.Search.ByNameAsync("shonan");
-            Console.WriteLine(searchByName.FirstOrDefault()?.Name); 
+            Console.WriteLine(searchByName.FirstOrDefault()?.Name);
             Console.WriteLine("");
-            
+
             // Advanced searching
             var advancedSearch = await radioBrowser.Search.AdvancedAsync(new AdvancedSearchOptions
             {
@@ -29,28 +29,19 @@ namespace RadioBrowser.Example
                 TagList = "news",
                 Limit = 5
             });
-            
-            foreach (var station in advancedSearch)
-            {
-                Console.WriteLine(station.Name);
-            }
+
+            foreach (var station in advancedSearch) Console.WriteLine(station.Name);
             Console.WriteLine("");
-            
+
             // Getting top stations
             var topByVotes = await radioBrowser.Stations.GetByVotesAsync(5);
 
-            foreach (var station in topByVotes)
-            {
-                Console.WriteLine(station.Name);
-            }
+            foreach (var station in topByVotes) Console.WriteLine(station.Name);
             Console.WriteLine("");
 
             // Getting codecs list
             var codecs = await radioBrowser.Lists.GetCodecsAsync();
-            foreach (var codec in codecs)
-            {
-                Console.WriteLine($"{codec.Name} - {codec.Stationcount}");
-            }
+            foreach (var codec in codecs) Console.WriteLine($"{codec.Name} - {codec.Stationcount}");
         }
     }
 }
