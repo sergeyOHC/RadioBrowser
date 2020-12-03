@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text.Json.Serialization;
+using RadioBrowser.Internals;
 
 namespace RadioBrowser.Models
 {
@@ -51,8 +52,8 @@ namespace RadioBrowser.Models
         /// <summary>
         ///     Tags of the stream with more information about it.
         /// </summary>
-        [JsonIgnore]
-        public List<string> TagsList { get; set; }
+        [JsonConverter(typeof(ListConverter))]
+        public List<string> Tags { get; set; }
 
         /// <summary>
         ///     Official country codes as in ISO 3166-1 alpha-2.
@@ -62,8 +63,8 @@ namespace RadioBrowser.Models
         /// <summary>
         ///     Languages that are spoken in this stream.
         /// </summary>
-        [JsonIgnore]
-        public List<string> LanguagesList { get; set; }
+        [JsonConverter(typeof(ListConverter))]
+        public List<string> Language { get; set; }
 
         /// <summary>
         ///     Number of votes for this station. This number is by server and only ever increases.
@@ -128,38 +129,5 @@ namespace RadioBrowser.Models
         ///     Positive values mean an increase, negative a decrease of clicks.
         /// </summary>
         public int ClickTrend { get; set; }
-
-
-        // Tags deserialization
-        public string Tags
-        {
-            get => TagsList == null ? null : string.Join(",", TagsList.ToArray());
-            set
-            {
-                if (value == null)
-                {
-                    TagsList = null;
-                    return;
-                }
-
-                TagsList = value.Split(',').Select(s => s.Trim()).ToList();
-            }
-        }
-
-        // Language deserialization
-        public string Language
-        {
-            get => LanguagesList == null ? null : string.Join(",", LanguagesList.ToArray());
-            set
-            {
-                if (value == null)
-                {
-                    LanguagesList = null;
-                    return;
-                }
-
-                LanguagesList = value.Split(',').Select(s => s.Trim()).ToList();
-            }
-        }
     }
 }
