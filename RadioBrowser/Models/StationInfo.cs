@@ -34,6 +34,7 @@ namespace RadioBrowser.Models
         ///     is not able to do a resolve on its own (e.g. JavaScript in browser)
         ///     or you just don't want to invest the time in decoding playlists yourself.
         /// </summary>
+        [JsonPropertyName("url_resolved")]
         public Uri UrlResolved { get; set; }
 
         /// <summary>
