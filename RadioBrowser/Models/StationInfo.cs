@@ -26,6 +26,7 @@ namespace RadioBrowser.Models
         /// <summary>
         ///     The stream URL provided by the user.
         /// </summary>
+        [JsonConverter(typeof(UriConverter))]
         public Uri Url { get; set; }
 
         /// <summary>
@@ -36,17 +37,20 @@ namespace RadioBrowser.Models
         ///     or you just don't want to invest the time in decoding playlists yourself.
         /// </summary>
         [JsonPropertyName("url_resolved")]
+        [JsonConverter(typeof(UriConverter))]
         public Uri UrlResolved { get; set; }
 
         /// <summary>
         ///     URL to the homepage of the stream,
         ///     so you can direct the user to a page with more information about the stream.
         /// </summary>
+        [JsonConverter(typeof(UriConverter))]
         public Uri Homepage { get; set; }
 
         /// <summary>
         ///     URL to an icon or picture that represents the stream. (PNG, JPG)
         /// </summary>
+        [JsonConverter(typeof(UriConverter))]
         public Uri Favicon { get; set; }
 
         /// <summary>
