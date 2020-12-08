@@ -1,4 +1,5 @@
 using System;
+using System.Diagnostics;
 using System.Globalization;
 using System.Text.Json;
 using System.Text.Json.Serialization;
@@ -15,6 +16,7 @@ namespace RadioBrowser.Internals.JsonConverters
             }
             catch (FormatException)
             {
+                Trace.WriteLine("Cannot parse date.");
                 return new DateTime(0);
             }
         }

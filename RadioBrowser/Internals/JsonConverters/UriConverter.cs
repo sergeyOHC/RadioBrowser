@@ -1,4 +1,5 @@
 using System;
+using System.Diagnostics;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 
@@ -14,6 +15,7 @@ namespace RadioBrowser.Internals.JsonConverters
             }
             catch (UriFormatException)
             {
+                Trace.WriteLine("Cannot parse URI.");
                 return null;
             }
         }
