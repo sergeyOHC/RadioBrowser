@@ -3,7 +3,7 @@ using RadioBrowser.Internals;
 
 namespace RadioBrowser
 {
-    public class RadioBrowserClient
+    public class RadioBrowserClient : IRadioBrowserClient
     {
         /// <summary>
         ///     Create RadioBrowser instance
