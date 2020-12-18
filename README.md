@@ -2,7 +2,7 @@
 
 Radio API wrapper for [radio-browser.info](https://radio-browser.info).
 
-Compatible with .NET Core and .NET Standard.
+Compatible with .NET 5 and .NET Standard 2.1.
 
 ## How to use
 * [Nuget package](https://www.nuget.org/packages/RadioBrowser)
