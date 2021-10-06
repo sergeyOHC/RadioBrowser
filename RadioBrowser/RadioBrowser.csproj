@@ -2,7 +2,7 @@
 
     <PropertyGroup>
         <TargetFrameworks>net5.0; netstandard2.1</TargetFrameworks>
-        <PackageVersion>0.6.1</PackageVersion>
+        <Version>0.6.1</Version>
         <Title>RadioBrowser</Title>
         <Authors>tofudd</Authors>
         <Description>Radio Browser API wrapper</Description>
